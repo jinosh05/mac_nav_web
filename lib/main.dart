@@ -136,7 +136,6 @@ class DragTargetList extends StatelessWidget {
       },
       builder: (context, candidateData, rejectedData) {
         return Wrap(
-          //   mainAxisSize: MainAxisSize.min,
           children: [
             for (var icon in icons)
               DraggableIcon(
@@ -173,28 +172,32 @@ class DraggableIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Draggable<IconData>(
       data: icon,
-      feedback: Material(
-        color: Colors.transparent,
+      feedback: Container(
+        width: 65,
+        height: 65,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.primaries[icon.hashCode % Colors.primaries.length],
+        ),
         child: Icon(
           icon,
-          size: 48,
+          size: 32,
           color: Colors.white,
         ),
       ),
       childWhenDragging: Container(
-        width: 50,
-        height: 50,
+        width: 65,
+        height: 65,
         decoration: const BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.white10,
         ),
       ),
       onDragCompleted: onDragCompleted,
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 8),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.white12,
+          color: Colors.primaries[icon.hashCode % Colors.primaries.length],
         ),
         padding: const EdgeInsets.all(16),
         child: Icon(
