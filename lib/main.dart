@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,15 +42,14 @@ class MacOSDock extends StatefulWidget {
 
 class MacOSDockState extends State<MacOSDock> {
   List<IconData> dockIcons = [
-    FontAwesomeIcons.folder,
-    FontAwesomeIcons.safari,
-    FontAwesomeIcons.envelope,
-    FontAwesomeIcons.github,
+    Icons.person,
+    Icons.message,
+    Icons.call,
+    Icons.camera,
+    Icons.photo,
   ];
 
-  List<IconData> externalIcons = [
-    FontAwesomeIcons.spotify,
-  ];
+  List<IconData> externalIcons = [];
 
   /// Handles moving the icon between lists
   void _onIconMoved(IconData icon, bool toDock) {
@@ -199,7 +197,7 @@ class DraggableIcon extends StatelessWidget {
           color: Colors.white12,
         ),
         padding: const EdgeInsets.all(16),
-        child: FaIcon(
+        child: Icon(
           icon,
           size: 36,
           color: Colors.white,
